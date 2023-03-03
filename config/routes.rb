@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root :to =>"homes#top"
   devise_for :users
   get "home/about"=>"homes#about"
+  get "search" => "searches#search"
 
   resources :books, only: [:index,:show,:edit,:create,:destroy,:update] do
     resource :favorites, only: [:create, :destroy]
@@ -14,5 +15,6 @@ Rails.application.routes.draw do
    get 'relationships/followers' => 'relationships#followers', as: 'followers'
    get 'relationships/followings' => 'relationships#followings', as: 'followings'
   end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
